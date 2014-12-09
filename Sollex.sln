@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SollexMachineLearning", "SollexMachineLearning\SollexMachineLearning.csproj", "{120927C6-24C7-43AB-AF99-2341AE1A40FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{8FE7D19F-5A9A-42D9-B5A9-F528C1AAA034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenaOnline", "GenaOnline\GenaOnline.csproj", "{EBF81DD1-06E5-42DA-A9F1-0F52FDA8031F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{120927C6-24C7-43AB-AF99-2341AE1A40FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{120927C6-24C7-43AB-AF99-2341AE1A40FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{120927C6-24C7-43AB-AF99-2341AE1A40FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{120927C6-24C7-43AB-AF99-2341AE1A40FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE7D19F-5A9A-42D9-B5A9-F528C1AAA034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE7D19F-5A9A-42D9-B5A9-F528C1AAA034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE7D19F-5A9A-42D9-B5A9-F528C1AAA034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE7D19F-5A9A-42D9-B5A9-F528C1AAA034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBF81DD1-06E5-42DA-A9F1-0F52FDA8031F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBF81DD1-06E5-42DA-A9F1-0F52FDA8031F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBF81DD1-06E5-42DA-A9F1-0F52FDA8031F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBF81DD1-06E5-42DA-A9F1-0F52FDA8031F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal

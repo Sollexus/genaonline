@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Gena online";
+}
+
+<div class="jumbotron">
+    <h1>Gena online</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Choose csv file to load</h2>
+	    <p>
+			@using (Html.BeginForm("LoadFile", "Home")) {
+				<label for="inputsCount">Filename:</label>
+				<input type="text" name="inputsCount" id="inputsCount" />
+				
+				<label for="file">Filename:</label>
+				<input type="file" name="file" id="file" />
+
+				<input type="submit" />
+			}
+        </p>
+    </div>
+</div>
