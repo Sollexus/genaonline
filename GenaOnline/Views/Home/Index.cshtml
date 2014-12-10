@@ -8,17 +8,23 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h2>Choose csv file to load</h2>
-	    <p>
-			@using (Html.BeginForm("LoadFile", "Home")) {
-				<label for="inputsCount">Filename:</label>
-				<input type="text" name="inputsCount" id="inputsCount" />
-				
-				<label for="file">Filename:</label>
-				<input type="file" name="file" id="file" />
+	    <h2>Choose csv file to load</h2>
+		
+		@using (Html.BeginForm("LoadFile", "Home", FormMethod.Post, new {enctype = "multipart/form-data"})) {
+			<label for="inputsCount">Inputs count:</label>
+			<input type="text" name="inputsCount" id="inputsCount" />
 
-				<input type="submit" />
-			}
-        </p>
+			<br />
+
+			<label for="columnsToTake">Columns to take:</label>
+			<input type="text" name="columnsToTake" id="columnsToTake" />
+
+			<br />
+
+			<label for="file">Filename:</label>
+			<input type="file" name="file" id="file" />
+
+			<input type="submit" />
+		}
     </div>
 </div>

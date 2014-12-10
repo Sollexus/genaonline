@@ -54,53 +54,32 @@ namespace SollexMachineLearning {
 		
 	public static class InductiveLearner {
 		public static List<MLInputDataRow> LoadCsvFile(string fileContent, CsvLoadingParams prms) {
-			var lines = fileContent.Split(Environment.NewLine.ToCharArray());
+			var lines = fileContent.Split(Environment.NewLine.ToCharArray()).Skip(1);
 
 			var columns = prms.ColumnsToTake ?? Enumerable.Range(0, prms.InputsCount).ToArray();
 
-			foreach (var line in lines) {
-				var row = new MLInputDataRow();
-				row.Inputs = new float[columns.Length];
+			var res = new List<MLInputDataRow>();
 
+			foreach (var line in lines) {
+				if (String.IsNullOrEmpty(line)) continue;
+
+				var row = new MLInputDataRow {Inputs = new float[columns.Length]};
+
+				var cells = line.Split(',');
+
+				for (var i = 0; i < columns.Length; i++) {
+					row.Inputs[i] = float.Parse(cells[columns[i]]);
+				}
+
+				row.Class = int.Parse(cells[prms.InputsCount]);
+
+				res.Add(row);
 			}
 
-			return null;
+			return res;
 		}
 
-		/*public static void ProcessCsvFile(string fileName, string columnsToTake) {
-			#region "Loading data from excel"
-			var excel = new ExcelQueryFactory(fileName);
-
-			ExcelQueryable<Row> sheet;
-			if (String.IsNullOrEmpty(sheetName)) sheet = excel.Worksheet(0);
-			else {
-				if (excel.GetWorksheetNames().Contains(sheetName))
-					sheet = excel.Worksheet(sheetName);
-				else
-					throw new Exception(string.Format("Sheet with the name {0} doesn't exist in this excel file", sheetName));
-			}
-
-			#endregion
-
-			var sheetDataList = sheet.ToList().Skip(offsetRows).Take(rowsCount).ToList();
-
-			List<int> columns;
-			if (String.IsNullOrEmpty(ColumnsToTake)) {
-				columns = Enumerable.Range(0, inputsCount).ToList();
-			} else {
-				try {
-					columns = ColumnsToTake.Split(',').Select(int.Parse).ToList();
-				} catch {
-					throw new Exception("Wrong columns format");
-				}
-			}
-
-			var data = from row in sheetDataList
-					   select new MLInputDataRow {
-						   Inputs = columns.Select(i => row.Skip(offsetCols + i).Take(1).First().Cast<float>()).ToArray(),
-						   Class = row[inputsCount + offsetRows].Cast<int>()
-					   };
-
+		/*public static void ProcessCsvFile(List<MLInputDataRow> data) {
 			var dataList = LoadCsvFile(fileName, columnsToTake);
 
 
@@ -267,44 +246,14 @@ namespace SollexMachineLearning {
 			//dividing a data set into training and test sets
 
 			pck.Save();#1#
-		}
+		}*/
 
-		public static void ProcessExcelFile(string fileName, int inputsCount, int rowsCount, string sheetName = null, int offsetCols = 0, int offsetRows = 0) {
-
-			#region "Loading data from excel"
-			var excel = new ExcelQueryFactory(fileName);
-
-			ExcelQueryable<Row> sheet;
-			if (String.IsNullOrEmpty(sheetName)) sheet = excel.Worksheet(0);
-			else {
-				if (excel.GetWorksheetNames().Contains(sheetName))
-					sheet = excel.Worksheet(sheetName);
-				else
-					throw new Exception(string.Format("Sheet with the name {0} doesn't exist in this excel file", sheetName));
-			}
-
-			var sheetDataList = sheet.ToList().Skip(offsetRows).Take(rowsCount).ToList();
-
-			List<int> columns;
-			if (String.IsNullOrEmpty(ColumnsToTake)) {
-				columns = Enumerable.Range(0, inputsCount).ToList();
-			} else {
-				try {
-					columns = ColumnsToTake.Split(',').Select(int.Parse).ToList();
-				} catch {
-					throw new Exception("Wrong columns format");
-				}
-			}
-			
-			var data = from row in sheetDataList
-					select new MLInputDataRow {
-						Inputs = columns.Select(i => row.Skip(offsetCols + i).Take(1).First().Cast<float>()).ToArray(),
-						Class = row[inputsCount + offsetRows].Cast<int>()
-					};
+		public static void ProcessCsvFile(string fileContent, CsvLoadingParams prms) {
+			var data = LoadCsvFile(fileContent, prms);
+			var columns = prms.ColumnsToTake ?? Enumerable.Range(0, prms.InputsCount).ToArray();
 
 			var dataList = data.ToList();
-			inputsCount = columns.Count;
-			#endregion
+			var inputsCount = columns.Length;
 
 			//Output excel file
 			var fileInfo = new FileInfo(@"Result.xlsx");
@@ -471,7 +420,6 @@ namespace SollexMachineLearning {
 			pck.Save();
 			return;
 		}
-*/
 	}
 }
 

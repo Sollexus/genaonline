@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SollexMachineLearning;
 
 namespace GenaOnline.Controllers {
 	public class HomeController : Controller {
@@ -10,16 +12,17 @@ namespace GenaOnline.Controllers {
 			return View();
 		}
 
-		public ActionResult About() {
-			ViewBag.Message = "Your application description page.";
+		[HttpPost]
+		public ActionResult LoadFile(HttpPostedFileBase file, int inputsCount, string columnsToTake) {
+			using (var reader = new StreamReader(file.InputStream)) {
+				var prms = new CsvLoadingParams {
+					ColumnsToTake = columnsToTake.Split(',').Select(int.Parse).ToArray(),
+					InputsCount = inputsCount
+				};
 
-			return View();
-		}
-
-		public ActionResult Contact() {
-			ViewBag.Message = "Your contact page.";
-
-			return View();
+				var res = InductiveLearner.LoadCsvFile(reader.ReadToEnd(), prms);
+				return View(res);
+			}
 		}
 	}
 }
