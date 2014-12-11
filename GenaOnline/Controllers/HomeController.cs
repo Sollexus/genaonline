@@ -4,23 +4,26 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GenaOnline.Models;
 using SollexMachineLearning;
 
 namespace GenaOnline.Controllers {
 	public class HomeController : Controller {
 		public ActionResult Index() {
-			return View();
+			return View(new LearningParamsViewModel());
 		}
 
 		[HttpPost]
-		public ActionResult LoadFile(HttpPostedFileBase file, int inputsCount, string columnsToTake) {
-			using (var reader = new StreamReader(file.InputStream)) {
-				var prms = new CsvLoadingParams {
-					ColumnsToTake = columnsToTake.Split(',').Select(int.Parse).ToArray(),
-					InputsCount = inputsCount
+		public ActionResult LoadFile(LearningParamsViewModel prms) {
+			if (System.Web.Mvc.ModelState)
+
+			using (var reader = new StreamReader(prms.CsvFile.InputStream)) {
+				var loadingParams = new CsvLoadingParams {
+					ColumnsToTake = prms.ColumnsToTake.Split(',').Select(int.Parse).ToArray(),
+					InputsCount = prms.InputsCount
 				};
 
-				var res = InductiveLearner.LoadCsvFile(reader.ReadToEnd(), prms);
+				var res = InductiveLearner.LoadCsvFile(reader.ReadToEnd(), loadingParams);
 				return View(res);
 			}
 		}

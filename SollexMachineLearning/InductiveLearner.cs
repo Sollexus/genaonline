@@ -248,7 +248,7 @@ namespace SollexMachineLearning {
 			pck.Save();#1#
 		}*/
 
-		public static void ProcessCsvFile(string fileContent, CsvLoadingParams prms) {
+		/*public static void ProcessCsvFile(string fileContent, CsvLoadingParams prms) {
 			var data = LoadCsvFile(fileContent, prms);
 			var columns = prms.ColumnsToTake ?? Enumerable.Range(0, prms.InputsCount).ToArray();
 
@@ -419,7 +419,7 @@ namespace SollexMachineLearning {
 
 			pck.Save();
 			return;
-		}
+		}*/
 	}
 }
 
