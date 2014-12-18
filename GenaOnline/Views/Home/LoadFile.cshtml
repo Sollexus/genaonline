@@ -1,35 +1,21 @@
-﻿@using SollexMachineLearning;
-@model List<MLInputDataRow>
+﻿@model GenaOnline.Models.LearningParamsViewModel
+
 @{
 	ViewBag.Title = "Gena online";
 }
 
-<div class="jumbotron">
-	<h1>Gena online</h1>
-</div>
-
 <div class="row">
 	<div class="col-md-12">
-		<h2>Result</h2>
-		<table class="table-bordered">
-			<thead>
-				<tr>
-					@for (var i = 0; i < Model[0].Inputs.Length; i++) {
-						<th>@("X" + i)</th>
-					}
-					<td>Class</td>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach (var row in Model) {
-					<tr>
-						@foreach (var input in row.Inputs) {
-							<td>@input</td>
-						}
-						<td>@row.Class</td>
-					</tr>
-				}
-			</tbody>
-		</table>
+		<h2>Choose csv file to load</h2>
+
+		@using (Html.BeginForm("LoadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+
+			@Html.EditorForModel()
+			
+			@Html.LabelFor(_ => _.CsvFile)
+			@Html.TextBoxFor(_ => _.CsvFile, new {type = "file"})
+			
+			<input type="submit" />
+		}
 	</div>
 </div>

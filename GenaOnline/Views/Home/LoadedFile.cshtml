@@ -1,0 +1,61 @@
+﻿@using SollexMachineLearning;
+@model ResultSet
+
+@{
+	ViewBag.Title = "Loaded file";
+}
+
+<div class="row">
+	<div class="col-md-12" style="overflow: auto">
+		<h2>Result</h2>
+		<div class="result-table-container">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						@for (var i = 0; i < Model.DiscretizedInput[0].Inputs.Length; i++) {
+							<th>@("X" + (i + 1))</th>
+						}
+						<th>Class</th>
+						@foreach (var t in Model.TestMatrix) {
+							<th>
+								@t.InputsToString()
+								@t.FunctionToString()
+								@t.ClassCountsToString())
+							</th>
+						}
+						<th>Decision</th>
+					</tr>
+				</thead>
+				<tbody>
+					@for (var i = 0; i < Model.DiscretizedInput.Count; i++) {
+						var row = Model.DiscretizedInput[i];
+						<tr>
+							@foreach (var input in row.Inputs) {
+								<td>@input</td>
+							}
+							<td>@row.Class</td>
+							@foreach (var t in Model.TestMatrix) {
+								<td>@t.TestColumn[i]</td>
+							}
+							<td class="active">@Model.DecisionColumn.Results[i]</td>
+						</tr>
+					}
+					<tr class="active">
+						<td colspan="@(Model.DiscretizedInput[0].Inputs.Length + 1)"></td>
+						@foreach (var t in Model.TestMatrix) {
+							<td>@t.ValidCount</td>
+						}
+						<td>@Model.DecisionColumn.OverallResult</td>
+					</tr>
+					<tr class="active">
+						<td colspan="@(Model.DiscretizedInput[0].Inputs.Length + 1)"></td>
+						@foreach (var t in Model.TestMatrix) {
+							<td>@(string.Format("{0:##.000}%", t.ValidCount * 100 / (float)Model.DiscretizedInput.Count))</td>
+						}
+						<td>@(string.Format("{0:##.000}%", @Model.DecisionColumn.OverallResult * 100 / (float)Model.DiscretizedInput.Count))</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

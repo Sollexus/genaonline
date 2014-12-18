@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.result-table-container {
+	max-width: 1000px;
+	max-height: 600px;
+	/*overflow: auto;*/
+}
