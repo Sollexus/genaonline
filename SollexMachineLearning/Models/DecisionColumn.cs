@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SollexMachineLearning {
+﻿namespace SollexMachineLearning.Models {
 	public class DecisionColumn {
 		public DecisionColumn() {
 			

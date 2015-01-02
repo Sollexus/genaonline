@@ -12,7 +12,7 @@ namespace Test {
 	public class InductiveLearnerTest {
 		[TestMethod]
 		public void ExcelToInputData() {
-			var fileName = @"..\..\..\..\Кодирование процедура_ОВ_нов._Град_х5х6_с другой ЭВ для града.xls";
+			//var fileName = @"..\..\..\..\Кодирование процедура_ОВ_нов._Град_х5х6_с другой ЭВ для града.xls";
 			//InductiveLearner.ProcessExcelFile(fileName, 7, 102, sheetName: "Экзамен");
 		}
 

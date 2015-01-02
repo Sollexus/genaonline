@@ -74,21 +74,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CsvLoadingParams.cs" />
-    <Compile Include="DecisionColumn.cs" />
-    <Compile Include="DiscretizedDataRow.cs" />
+    <Compile Include="Models\CsvLoadingParams.cs" />
+    <Compile Include="Models\DecisionColumn.cs" />
+    <Compile Include="Models\DiscretizedDataRow.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="InductiveLearner.cs" />
-    <Compile Include="Inputs\DiscretizedInput.cs" />
-    <Compile Include="Inputs\Input.cs" />
-    <Compile Include="Inputs\Interval.cs" />
-    <Compile Include="Inputs\IntervalInput.cs" />
-    <Compile Include="Inputs\NominalInput.cs" />
-    <Compile Include="LearningParams.cs" />
-    <Compile Include="MLInputDataRow.cs" />
+    <Compile Include="Models\Inputs\DiscretizedInput.cs" />
+    <Compile Include="Models\Inputs\Input.cs" />
+    <Compile Include="Models\Inputs\Interval.cs" />
+    <Compile Include="Models\Inputs\IntervalInput.cs" />
+    <Compile Include="Models\Inputs\NominalInput.cs" />
+    <Compile Include="Models\LearningParams.cs" />
+    <Compile Include="Models\MLInputDataRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultSet.cs" />
-    <Compile Include="TestMatrixItem.cs" />
+    <Compile Include="Models\ResultSet.cs" />
+    <Compile Include="Models\TestMatrixItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

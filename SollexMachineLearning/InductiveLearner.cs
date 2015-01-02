@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Combinatorics.Collections;
 using System.Linq;
+using SollexMachineLearning.Models;
 
 namespace SollexMachineLearning {
 	public static class InductiveLearner {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SollexMachineLearning {
+namespace SollexMachineLearning.Models {
 	public class TestMatrixItem {
 		public int?[] TestColumn; //suggested by function values
 		public List<int> Combination; // inputs indexes. For example [x6, x7, x9]

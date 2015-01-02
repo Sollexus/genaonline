@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SollexMachineLearning.Inputs {
+namespace SollexMachineLearning.Models.Inputs {
 	public class IntervalInput : Input {
 		public List<Interval> Intervals { get; set; }
 	}

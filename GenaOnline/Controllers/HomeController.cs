@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using GenaOnline.Models;
 using SollexMachineLearning;
+using SollexMachineLearning.Models;
 
 namespace GenaOnline.Controllers {
 	public class HomeController : Controller {
@@ -33,7 +34,15 @@ namespace GenaOnline.Controllers {
 					InputsCount = prms.InputsCount
 				};
 
-				var res = InductiveLearner.LoadCsvFile(reader.ReadToEnd(), loadingParams);
+				ResultSet res;
+
+				try {
+					res = InductiveLearner.LoadCsvFile(reader.ReadToEnd(), loadingParams);
+				} catch (Exception ex) {
+					var errReport = string.Format("{0}\n{1}", ex.Message, ex.StackTrace);
+					return View("LoadingError", (object)errReport);
+				}
+
 				return View("LoadedFile", res);
 			}
 		}

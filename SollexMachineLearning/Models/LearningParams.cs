@@ -1,4 +1,4 @@
-namespace SollexMachineLearning {
+namespace SollexMachineLearning.Models {
 	public class LearningParams {
 		public int TriesCount = 10;
 		public float LearningSetPercentage = 0.5f;

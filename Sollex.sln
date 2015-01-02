@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenaOnline", "GenaOnline\GenaOnline.csproj", "{EBF81DD1-06E5-42DA-A9F1-0F52FDA8031F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.DAL", "ML.DAL\ML.DAL.csproj", "{91C32401-AD18-4159-B29D-2CA5E6766A01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EBF81DD1-06E5-42DA-A9F1-0F52FDA8031F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBF81DD1-06E5-42DA-A9F1-0F52FDA8031F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBF81DD1-06E5-42DA-A9F1-0F52FDA8031F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C32401-AD18-4159-B29D-2CA5E6766A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C32401-AD18-4159-B29D-2CA5E6766A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C32401-AD18-4159-B29D-2CA5E6766A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C32401-AD18-4159-B29D-2CA5E6766A01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
